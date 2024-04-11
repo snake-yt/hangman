@@ -1,0 +1,170 @@
+Fonction main():
+Variables
+        player_1, player_2 (chaînes de caractères)  // Noms des joueurs
+        word (chaîne de caractères)  // Mot à deviner
+        display (chaîne de caractères)  // Affichage du mot avec les lettres devinées
+        tries (entier)  // Nombre d'essais restants
+        current_player (chaîne de caractères)  // Joueur en cours
+        winner (chaîne de caractères)  // Joueur gagnant
+        game_over (booléen)  // Indique si le jeu est terminé
+
+Début
+        Afficher("Bienvenue dans le Jeu du Pendu !")
+        
+        // Demander aux joueurs s'ils veulent lire les règles
+        rules_or_play = input("Voulez-vous lire les règles du jeu ? (o/n) ").lower().strip()
+        Si rules_or_play == "o":
+            Afficher les règles()
+        Sinon Si rules_or_play == "n":
+            Afficher("C'est parti, bon amusement !")
+	Fin sinon
+        Sinon :
+            Afficher("C'est parti, bon amusement !")
+	Fin Sinon
+	Fin Si
+
+        // Configurer les joueurs
+        player_1, player_2 = set_players()
+
+        // Générer un mot aléatoire
+        word = generate_word()
+        
+        // Initialiser l'affichage du mot
+        display = get_word_size(word)
+
+        // Initialiser le nombre d'essais
+        tries = 6
+        
+        // Déterminer le joueur actuel
+        current_player = player_1
+        
+        // Initialiser les variables de fin de jeu
+        winner = None
+        game_over = False
+
+        Tant que !game_over == Vrai :
+            // Afficher le mot actuel avec les lettres devinées
+            Afficher display
+            
+            // Demander au joueur actuel de deviner une lettre
+            letter = input("Entrez une lettre, " + current_player + " : ")
+            
+            // Mettre à jour l'affichage du mot
+            display = update_display(word, display, letter)
+            
+            Si la lettre n'est pas dans le mot :
+                // Diminuer le nombre d'essais restants
+                tries -= 1
+                Afficher("Il vous reste " + tries + " essais.")
+                
+                Si tries == 0 ET "_" est encore dans display :
+                    // Le joueur n'a plus d'essais et le mot n'est pas complet
+                    Afficher("Personne n'a gagné, le mot était " + word)
+                    Demander aux joueurs s'ils veulent rejouer()
+		Fin Si
+	    Fin Si
+            
+            Si "_" n'est pas dans display :
+                // Le mot est complet, déterminer le gagnant
+                winner = current_player
+                game_over = True
+                Afficher("Félicitations " + winner + ", vous avez gagné ! Le mot était " + word)
+                Demander aux joueurs s'ils veulent rejouer()
+	    Fin Si
+            
+            // Changer de joueur
+            Si current_player == player_1 :
+                current_player = player_2
+            Sinon :
+                current_player = player_1
+            Fin sinon
+		
+ 	    Fin si
+        
+        Fin Tant que
+        
+Fin
+
+
+Fonction play_again():
+Début :
+        yes_or_no = input("Voulez-vous rejouer ? (o/n)")
+        Si yes_or_no == "o":
+            main()
+	
+        Sinon :
+            Afficher("Merci d'avoir joué !")
+            end_game()
+            exit()
+	Fin Sinon
+	Fin Si
+Fin
+
+
+Fonction print_rules():
+Début
+        Afficher("Règles du Jeu du Pendu :")
+        // Afficher les règles du jeu
+Fin
+
+
+Fonction end_game():
+Début
+        // Attendre que l'utilisateur appuie sur une touche pour quitter
+        // Effacer l'écran si possible
+Fin
+
+
+Fonction set_players():
+Début :
+        player_1 = input("Nom du premier joueur : ")
+        player_2 = input("Nom du second joueur : (Nom ou 0)")
+        Si player_1 est une chaîne vide :
+            player_1 = "Joueur 1"
+	Fin Si
+        Si player_2 est une chaîne vide :
+            player_2 = "Joueur 2"
+	Fin Si
+        Si player_1 == player_2 :
+            player_2 += " 2"
+	Fin Si
+        Si player_2 == "0" :
+            player_2 = "Bot"
+	Fin Si
+        Retourner player_1, player_2
+Fin
+
+
+Fonction generate_word():
+Début
+        // Générer un mot aléatoire à partir d'une liste prédéfinie
+        Retourner un mot aléatoire
+Fin
+
+Fonction get_word_size(word):
+Début 
+        // Créer un affichage pour le mot avec des underscores
+        Retourner len(word)
+Fin
+
+Fonction check_letter(word, display, letter):
+Début 
+        // Vérifier si la lettre est dans le mot
+        word = list(word)
+	display = list(display)
+	Si letter in word:
+    		Pour i in lren(word):
+        		Si word[i] == letter:
+            			display[i] = letter
+			Fin Si
+		Fin Pour
+	Fin Si
+        Retourner display
+Fin
+
+Fonction update_display(word, display, letter):
+Début 
+        // Mettre à jour l'affichage du mot avec la nouvelle lettre devinée
+        display = check_letter(word, display, letter)
+        Retourner display
+Fin
