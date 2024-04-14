@@ -1,6 +1,5 @@
 # Import os and main 
 import os
-from main import main
 
 
 # Print rules function
