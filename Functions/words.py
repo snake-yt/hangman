@@ -19,7 +19,7 @@ def get_word_size(word):
     return display
 
 
-# Function to check if the letter is in the word
+# Function to check if the letter is in the word and update the display
 def check_letter(word, display, letter):
     # Convert the word and the display to a list
     word = list(word)
@@ -41,5 +41,3 @@ def update_display(word, display, letter):
     # Update and return the display
     display = check_letter(word, display, letter)
     return display
-
-

@@ -2,6 +2,7 @@
 from colorama import init, Fore
 init()
 
+
 # Function to set the players' names
 def set_palyers():
     # Ask players to enter their names
