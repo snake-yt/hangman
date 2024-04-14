@@ -41,3 +41,5 @@ def update_display(word, display, letter):
     # Update and return the display
     display = check_letter(word, display, letter)
     return display
+
+
