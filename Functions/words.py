@@ -6,7 +6,7 @@ import random
 def generate_words():
     # List of words
     words = ["javascript", "python", "programmation",
-             "laboratoire", "sciences", "pomme", "banane"]
+             "laboratoire", "sciences", "pomme", "banane", "poireau"]
     # Return a random word
     return random.choice(words)
 
