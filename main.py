@@ -1,6 +1,7 @@
 # Import de mes différents modules
 from Functions import *
 
+
 # Fonction pour demander aux joueurs s'ils veulent rejouer
 def play_again():
     yes_or_not = input("\n> Voulez-vous rejouer? (o/n) ").lower().strip()
