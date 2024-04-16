@@ -1,9 +1,9 @@
-# Import os and colors
+# Import de mon module colors et de os
 from Functions import colors
 import os
 
 
-# Print rules function
+# Fonction pour afficher les règles du jeu
 def print_rules():
     print(f"\n----------------Bienvenue dans notre jeu du pendu en {colors.YELLOW}Python{colors.END} !----------------")
     print("\n---------------------------Noah, Matthew et Yollan---------------------------")
@@ -20,11 +20,13 @@ def print_rules():
     print("\n----------------------https://github.com/snake-yt/hangman--------------------")
     print("\n------------------------Bonne chance et amusez-vous !------------------------")
 
-# Clear function
+
+# Fonction pour clear la console
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
-# End game function
+
+# Fonction pour finir le jeu
 def end_game():
     os.system("pause")
     os.system("cls" if os.name == "nt" else "clear")    

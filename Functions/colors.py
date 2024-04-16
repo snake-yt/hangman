@@ -1,7 +1,8 @@
-# Module like colorama to color the text
+# Création d'un module colors.py pour ne plus devoir utiliser colorama
 class colors:
     BLACK = "\033[0;30m"
     RED = "\033[0;31m"
+    ORANGE = "\033[0;33m"
     GREEN = "\033[0;32m"
     BROWN = "\033[0;33m"
     BLUE = "\033[0;34m"

@@ -1,43 +1,39 @@
-# Import the random module
+# Import du module random
 import random
 
 
-# Function to generate a random word from a list of words
+# Fonction pour générer un mot aléatoirement
 def generate_words():
-    # List of words
-    words = ["javascript", "python", "programmation",
-             "laboratoire", "sciences", "pomme", "banane", "poireau"]
-    # Return a random word
-    return random.choice(words)
+    words = ["javascript", "python", "programmation","laboratoire", "sciences", "pomme", "banane", "poireau", "chips", "algorithme", "chenille", "mozilla", "logitech", "steelseries", "nvidia", "corsair"]
+    word = random.randint(0, len(words)-1)
+    return words[word]
 
 
-# Function to get the size of the word
+# Fonction pour récupérer la taille du mot
 def get_word_size(word):
-    # Create a display for the word with "_"
     display = "_"*len(word)
-    # Return the display
     return display
 
 
-# Function to check if the letter is in the word and update the display
+# Fonction pour vérifier si la lettre est dans le mot
 def check_letter(word, display, letter):
-    # Convert the word and the display to a list
+    # Convertire le mot et le display en listes
     word = list(word)
     display = list(display)
-    # If the letter is in the word
+    # Si la lettre est dans le mot
     if letter in word:
-        # Replace "_" with the letter
+        # Remplacer les underscores par la lettre
         for i in range(len(word)):
-            # If the letter is in the word
+            # SI la lettre est dans le mot
             if word[i] == letter:
-                display[i] = letter
+                # La remplacer au bon endroit
+                display[i] = letter  
 
-    # Return the display
     return "".join(display)
 
 
-# Function to update the display
+# Fonction pour mettre à jour le display
 def update_display(word, display, letter):
-    # Update and return the display
+    # Modifier le display
     display = check_letter(word, display, letter)
     return display
